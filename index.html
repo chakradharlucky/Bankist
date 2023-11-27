@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bankist App</title>
     <link rel="stylesheet" href="style.css">
+    <link
+    href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
     <!-- Navigation  -->
@@ -34,7 +38,8 @@
     <div id="main">
         <div id="movements">
             <div class="movements__row">
-                <div class="movements__type movements__type--deposit">2 deposit</div>
+                <div class="movements__type movements__type--deposit">
+                    2 deposit</div>
                 <div class="movements__date">3 days ago</div>
                 <div class="movements__value">4 000€</div>
               </div>
@@ -46,28 +51,34 @@
                 <div class="movements__value">-378€</div>
               </div>
             </div>
-        <div id="operation ">
-            <div class="operation">
+        <div id="operation">
+            <div class="operation transfer_money">
                 <h1>Transfer Money</h1>
                 <form action="">
-                    <input type="text" name="to_user_name" > 
-                    <input type="number" name="amount">
+                    <input type="text" name="to_user_name" id="transfer_money_userName" > 
+                    <input type="number" name="amount" id="transfer_money_amount">
                     <button>&rarr;</button>
+                    <label for="transfer_money_userName"> User Name </label>
+                    <label for="transfer_money_amount">Amount</label>
                 </form> 
             </div>
-            <div class="operation">
+            <div class="operation request_loan">
                 <h1>Request Loan</h1>
                 <form action="">
-                    <input type="number" name="amount">
+                    <input type="number" name="amount" id="loan_amount">
                     <button>&rarr;</button>
+                    <span></span>
+                    <label for="loan_amount">Amount</label>
                 </form> 
             </div>
-            <div class="operation">
+            <div class="operation close_account">
                 <h1>Close Account</h1>
                 <form action="">
-                    <input type="text" name="close_user_name" > 
-                    <input type="password" name="close_pin">
+                    <input type="text" name="close_user_name" id="close_account_user_name"> 
+                    <input type="password" name="close_pin" id="close_account_pin">
                     <button>&rarr;</button>
+                    <label for="close_account_user_name">User name</label>
+                    <label for="close_account_pin">Pin</label>
                 </form> 
             </div>
         </div>

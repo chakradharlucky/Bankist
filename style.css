@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:ital,wght@0,300;1,100&family=Shadows+Into+Light&display=swap');
 body{
     margin: 100px 100px;
+    background-color: rgb(221, 221, 221);
+    font-family: 'Roboto', sans-serif;
+
 }
 #navigation{
     display: flex;
@@ -21,14 +25,14 @@ body{
 
 #main{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* justify-content: space-between; */
+    grid-template-columns: 6fr 1fr;
     margin:10px 100px;
     gap: 50px;
 
 }
 #movements{
     width: 100%;
+    overflow: scroll;
 }
 #operation{
     display: flex;
@@ -36,7 +40,7 @@ body{
     justify-content: center;
     width: 100%;
     margin: 10px 10px;
-
+    background-color: rgba(5, 6, 6, 0);
 }
 .operation{
     padding: 0px 50px;
@@ -45,9 +49,21 @@ form{
     display: grid;
     grid-template-columns: 2.5fr 2.5fr 1fr;
     grid-template-rows:1fr 1fr 1fr;
-    
+    gap:10px; 
+    padding: 5px 50px;  
+    border-radius: 2px; 
+}
+#movements,#operation{
+    border: 2px solid;
 }
 
-#movements,#operation{
-    border: 5px solid;
+.transfer_money{
+
+} 
+.request_loan{
+
+} 
+.close_account{
+ /* border: 2px solid rgb(189, 155, 223);
+ background-color: rgb(224, 220, 220); */
 }
