@@ -1,0 +1,53 @@
+body{
+    margin: 100px 100px;
+}
+#navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:10px 100px;
+}
+
+#login{
+    display: flex;
+    justify-content: space-between;
+}
+
+#current_balance{
+    display: flex;
+    justify-content:space-between;
+    margin:0px 100px;
+}
+
+#main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* justify-content: space-between; */
+    margin:10px 100px;
+    gap: 50px;
+
+}
+#movements{
+    width: 100%;
+}
+#operation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 10px;
+
+}
+.operation{
+    padding: 0px 50px;
+}
+form{
+    display: grid;
+    grid-template-columns: 2.5fr 2.5fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+    
+}
+
+#movements,#operation{
+    border: 5px solid;
+}
