@@ -14,25 +14,25 @@
 <body>
     <!-- Navigation  -->
     <div id="navigation">
-        <div><h1>Bankist</h1></div>
+        <div><h1 id="greet">Bankist</h1></div>
         <div>
             <!-- <img src=""> -->
             <h1>BA</h1>
         </div>
         <div id="login">
-            <div><input type="text" name="user_name" placeholder="User Name"></div>
-            <div><input type="password" name="password" placeholder="Password"></div>
-            <div><button>&rarr;</button></div>
+            <div><input type="text" name="user_name" placeholder="User Name" id="login_username" ></div>
+            <div><input type="password" name="password" placeholder="Password" id="login_password"></div>
+            <div><button id="login_button">&rarr;</button></div>
         </div>
     </div>
 
     <div id="current_balance">
         <div>
             <h1>Current Balance</h1>
-            <p>As of 25/11/2023, 2:48</p>
+            <p>As of <span id="data_and_time">25/11/2023, 2:48</span></p>
         </div>
         <div>
-            <h1>&#x20B9; 5545</h1>
+            <h1>&#x20B9; <span id="balance">5545</span></h1>
         </div>
     </div>
 
@@ -58,7 +58,7 @@
                 <form action="">
                     <input type="text" name="to_user_name" id="transfer_money_userName" > 
                     <input type="number" name="amount" id="transfer_money_amount">
-                    <button>&rarr;</button>
+                    <button id="transfer_money_button">&rarr;</button>
                     <label for="transfer_money_userName"> User Name </label>
                     <label for="transfer_money_amount">Amount</label>
                 </form> 
@@ -66,8 +66,8 @@
             <div class="operation request_loan">
                 <h1>Request Loan</h1>
                 <form action="">
-                    <input type="number" name="amount" id="loan_amount">
-                    <button>&rarr;</button>
+                    <input type="number" name="amount" id="loan_amount" id="request_loan_amount">
+                    <button id="request_loan_button">&rarr;</button>
                     <span></span>
                     <label for="loan_amount">Amount</label>
                 </form> 
@@ -77,13 +77,13 @@
                 <form action="">
                     <input type="text" name="close_user_name" id="close_account_user_name"> 
                     <input type="password" name="close_pin" id="close_account_pin">
-                    <button>&rarr;</button>
+                    <button id="close_account_button">&rarr;</button>
                     <label for="close_account_user_name">User name</label>
                     <label for="close_account_pin">Pin</label>
                 </form> 
             </div>
         </div>
     </div>
-    
+    <script src="script.js"></script>
 </body>
 </html>

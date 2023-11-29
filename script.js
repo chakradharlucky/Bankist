@@ -32,3 +32,34 @@ const account4 = {
 let accounts = [account1,account2,account3,account4]
 console.log(accounts)
 
+// Select elements
+//Select navigation bar elements
+const greet = document.querySelector("#greet")
+const login_username = document.querySelector("#login_username")
+const login_password = document.querySelector("#login_password")
+const login_button = document.querySelector("#login_button")
+
+// Select balance elements
+const data_and_time = document.querySelector("#data_and_time")
+const balance = document.querySelector("#balance")
+
+// Select Operations's elements 
+// Select Transfer money elements
+const transfer_money_userName = document.querySelector("#transfer_money_userName")
+const transfer_money_amount = document.querySelector("#transfer_money_amount")
+const transfer_money_button = document.querySelector("#transfer_money_button")
+// Select Request loan elements
+const request_loan_amount = document.querySelecter("#request_loan_amount")
+const request_loan_button = document.querySelector("#request_loan_button")
+// Select Close account elements
+const close_account_user_name = document.querySelector("#close_account_user_name");
+const close_account_pin = document.querySelector("#close_account_pin")
+const close_account_button = document.querySelector("#close_account_button")
+
+
+function createUserName(accounts){
+  accounts.forEach(account=>account.userName = account.owner.toLowerCase().split(" ").map(splitname=> splitname[0]).join(""))
+}
+
+//Create user name
+createUserName(accounts)
