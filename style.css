@@ -12,6 +12,10 @@ body{
     margin:10px 100px;
 }
 
+#logo{
+    font-family: 'Shadows Into Light';
+}
+
 #login{
     display: flex;
     justify-content: space-between;
@@ -35,6 +39,12 @@ body{
 #movements{
     width: 100%;
     overflow: scroll;
+}
+#movements_row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid rgb(144, 144, 144);
 }
 #operation{
     display: flex;

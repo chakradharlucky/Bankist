@@ -52,6 +52,7 @@ const close_account_user_name = document.querySelector("#close_account_user_name
 const close_account_pin = document.querySelector("#close_account_pin")
 const close_account_button = document.querySelector("#close_account_button")
 const balance_lable = document.querySelector("#balance")
+const movements_row_container = document.querySelector("#movements");
 
 //Functions 
 //Create user name
@@ -71,4 +72,19 @@ login_button.addEventListener('click',function(){
     greet.textContent = `Wellcome,${currentUser.owner.split(" ")[1]}`
     balance_lable.textContent = balance(currentUser.movements)
   }
+  movements_row_container.textContent = ""
+  currentUser.movements.forEach((move,idx)=>{
+    let move_type = move>0?"Deposit":"withdraw"
+      movements_row_container.insertAdjacentHTML("afterbegin",
+        `<div id="movements_row">
+            <div>
+              <h3>${idx + 1}.${move_type}</h3>
+            </div>
+            <div>
+            <h2>&#x20B9; ${Math.abs(move)}</h2>
+            </div>
+        </div>`
+      );
+  })
 })
+
