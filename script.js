@@ -39,10 +39,6 @@ const login_username = document.querySelector("#login_username")
 const login_password = document.querySelector("#login_password")
 const login_button = document.querySelector("#login_button")
 
-// Select balance elements
-const data_and_time = document.querySelector("#data_and_time")
-const balance = document.querySelector("#balance")
-
 // Select Operations's elements 
 // Select Transfer money elements
 const transfer_money_userName = document.querySelector("#transfer_money_userName")

@@ -14,7 +14,7 @@
 <body>
     <!-- Navigation  -->
     <div id="navigation">
-        <div><h1 id="greet">Bankist</h1></div>
+        <div><h1 id="greet">Log in to get start</h1></div>
         <div>
             <!-- <img src=""> -->
             <h1>BA</h1>
@@ -25,65 +25,67 @@
             <div><button id="login_button">&rarr;</button></div>
         </div>
     </div>
-
-    <div id="current_balance">
-        <div>
-            <h1>Current Balance</h1>
-            <p>As of <span id="data_and_time">25/11/2023, 2:48</span></p>
+    <div id="app">
+        <div id="current_balance">
+            <div>
+                <h1>Current Balance</h1>
+                <p>As of <span id="data_and_time">25/11/2023, 2:48</span></p>
+            </div>
+            <div>
+                <h1>&#x20B9; <span id="balance">5545</span></h1>
+            </div>
         </div>
-        <div>
-            <h1>&#x20B9; <span id="balance">5545</span></h1>
-        </div>
-    </div>
-
-    <div id="main">
-        <div id="movements">
-            <div class="movements__row">
-                <div class="movements__type movements__type--deposit">
-                    2 deposit</div>
-                <div class="movements__date">3 days ago</div>
-                <div class="movements__value">4 000€</div>
-              </div>
-              <div class="movements__row">
-                <div class="movements__type movements__type--withdrawal">
-                  1 withdrawal
+    
+        <div id="main">
+            <div id="movements">
+                <div class="movements__row">
+                    <div class="movements__type movements__type--deposit">
+                        2 deposit</div>
+                    <div class="movements__date">3 days ago</div>
+                    <div class="movements__value">4 000€</div>
+                  </div>
+                  <div class="movements__row">
+                    <div class="movements__type movements__type--withdrawal">
+                      1 withdrawal
+                    </div>
+                    <div class="movements__date">24/01/2037</div>
+                    <div class="movements__value">-378€</div>
+                  </div>
                 </div>
-                <div class="movements__date">24/01/2037</div>
-                <div class="movements__value">-378€</div>
-              </div>
-            </div>
-        <div id="operation">
-            <div class="operation transfer_money">
-                <h1>Transfer Money</h1>
-                <form action="">
-                    <input type="text" name="to_user_name" id="transfer_money_userName" > 
-                    <input type="number" name="amount" id="transfer_money_amount">
-                    <button id="transfer_money_button">&rarr;</button>
-                    <label for="transfer_money_userName"> User Name </label>
-                    <label for="transfer_money_amount">Amount</label>
-                </form> 
-            </div>
-            <div class="operation request_loan">
-                <h1>Request Loan</h1>
-                <form action="">
-                    <input type="number" name="amount" id="loan_amount" id="request_loan_amount">
-                    <button id="request_loan_button">&rarr;</button>
-                    <span></span>
-                    <label for="loan_amount">Amount</label>
-                </form> 
-            </div>
-            <div class="operation close_account">
-                <h1>Close Account</h1>
-                <form action="">
-                    <input type="text" name="close_user_name" id="close_account_user_name"> 
-                    <input type="password" name="close_pin" id="close_account_pin">
-                    <button id="close_account_button">&rarr;</button>
-                    <label for="close_account_user_name">User name</label>
-                    <label for="close_account_pin">Pin</label>
-                </form> 
+            <div id="operation">
+                <div class="operation transfer_money">
+                    <h1>Transfer Money</h1>
+                    <form action="">
+                        <input type="text" name="to_user_name" id="transfer_money_userName" > 
+                        <input type="number" name="amount" id="transfer_money_amount">
+                        <button id="transfer_money_button">&rarr;</button>
+                        <label for="transfer_money_userName"> User Name </label>
+                        <label for="transfer_money_amount">Amount</label>
+                    </form> 
+                </div>
+                <div class="operation request_loan">
+                    <h1>Request Loan</h1>
+                    <form action="">
+                        <input type="number" name="amount" id="loan_amount" id="request_loan_amount">
+                        <button id="request_loan_button">&rarr;</button>
+                        <span></span>
+                        <label for="loan_amount">Amount</label>
+                    </form> 
+                </div>
+                <div class="operation close_account">
+                    <h1>Close Account</h1>
+                    <form action="">
+                        <input type="text" name="close_user_name" id="close_account_user_name"> 
+                        <input type="password" name="close_pin" id="close_account_pin">
+                        <button id="close_account_button">&rarr;</button>
+                        <label for="close_account_user_name">User name</label>
+                        <label for="close_account_pin">Pin</label>
+                    </form> 
+                </div>
             </div>
         </div>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

@@ -23,12 +23,14 @@ body{
     margin:0px 100px;
 }
 
+#app{
+    opacity: 0;
+}
 #main{
     display: grid;
     grid-template-columns: 6fr 1fr;
     margin:10px 100px;
     gap: 50px;
-
 }
 #movements{
     width: 100%;
