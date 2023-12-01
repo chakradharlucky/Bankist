@@ -62,6 +62,19 @@ function createUserName(accounts){
 createUserName(accounts)
 
 let  balance = (account) => account.reduce((sum=0,movment)=> sum+movment)
+function display(move, idx) {
+    let move_type = move > 0 ? "Deposit" : "withdraw";
+    movements_row_container.insertAdjacentHTML(
+      "afterbegin",
+      `<div id="movements_row">
+            <div>
+              <h3>${idx + 1}.${move_type}</h3>
+            </div>
+            <div>
+            <h2>&#x20B9; ${Math.abs(move)}</h2>
+            </div>
+        </div>`)
+}
 
 // console.log(balance([4300, 10000, 7000, 500, 900]));
 let currentUser;
@@ -73,18 +86,16 @@ login_button.addEventListener('click',function(){
     balance_lable.textContent = balance(currentUser.movements)
   }
   movements_row_container.textContent = ""
-  currentUser.movements.forEach((move,idx)=>{
-    let move_type = move>0?"Deposit":"withdraw"
-      movements_row_container.insertAdjacentHTML("afterbegin",
-        `<div id="movements_row">
-            <div>
-              <h3>${idx + 1}.${move_type}</h3>
-            </div>
-            <div>
-            <h2>&#x20B9; ${Math.abs(move)}</h2>
-            </div>
-        </div>`
-      );
-  })
+  currentUser.movements.forEach((move, idx) => display(move,idx))
 })
 
+// Implement Operations
+transfer_money_button.addEventListener("click",(e)=>{
+  e.preventDefault();
+  const amount = Number(transfer_money_amount.value)
+  currentUser.movements.push(-1 * amount);
+  display(-1*amount,currentUser.movements.length-1)
+  const transferToUser = accounts.find((acct)=> acct.userName === transfer_money_userName.value)
+  transferToUser.movements.push(amount);
+  balance_lable.textContent = balance(currentUser.movements);
+}) 
