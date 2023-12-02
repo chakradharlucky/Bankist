@@ -61,7 +61,14 @@ function createUserName(accounts){
 }
 createUserName(accounts)
 
-let  balance = (account) => account.reduce((sum=0,movment)=> sum+movment)
+function balance(accts)
+{
+  accts.forEach((account)=> 
+  {
+    account.balance = account.movements.reduce((sum=0,movment)=> sum+movment)
+  })
+} 
+balance(accounts);
 function display(move, idx) {
     let move_type = move > 0 ? "Deposit" : "withdraw";
     movements_row_container.insertAdjacentHTML(
@@ -83,7 +90,7 @@ login_button.addEventListener('click',function(){
   if(currentUser.pin === Number(login_password.value)){
     app.style = "opacity: 100";
     greet.textContent = `Wellcome,${currentUser.owner.split(" ")[1]}`
-    balance_lable.textContent = balance(currentUser.movements)
+    balance_lable.textContent = currentUser.balance
   }
   movements_row_container.textContent = ""
   currentUser.movements.forEach((move, idx) => display(move,idx))
@@ -93,9 +100,12 @@ login_button.addEventListener('click',function(){
 transfer_money_button.addEventListener("click",(e)=>{
   e.preventDefault();
   const amount = Number(transfer_money_amount.value)
-  currentUser.movements.push(-1 * amount);
-  display(-1*amount,currentUser.movements.length-1)
-  const transferToUser = accounts.find((acct)=> acct.userName === transfer_money_userName.value)
-  transferToUser.movements.push(amount);
-  balance_lable.textContent = balance(currentUser.movements);
+  const recevier = accounts.find((acct)=> acct.userName === transfer_money_userName.value)
+  if(amount>0 && amount <= recevier.balance && currentUser.userName!== recevier)
+  {
+    currentUser.movements.push(-amount)
+    display(-amount,currentUser.movements.length-1)
+    recevier.movements.push(amount)
+    balance_lable.textContent = currentUser.balance - amount
+  }
 }) 
