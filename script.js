@@ -109,3 +109,15 @@ transfer_money_button.addEventListener("click",(e)=>{
     balance_lable.textContent = currentUser.balance - amount
   }
 }) 
+
+// Request Loan
+request_loan_button.addEventListener("click",(e)=>{
+  e.preventDefault();
+  const amount = Number(request_loan_amount.value)
+  if(amount>0){
+    console.log(amount)
+    currentUser.movements.push(amount)
+    display(amount,currentUser.movements.length - 1)
+    balance_lable.textContent = currentUser.balance + amount
+  }
+})
