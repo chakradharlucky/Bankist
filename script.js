@@ -126,3 +126,14 @@ request_loan_button.addEventListener("click",(e)=>{
     balance_lable.textContent = currentUser.balance + amount
   }
 })
+
+// Close account
+close_account_button.addEventListener("click",(e)=>{
+  e.preventDefault();
+  const closeAcctuUser = accounts.find((acct)=> acct.userName === close_account_user_name.value)
+  // console.log(closeAcctuUser)
+  if(closeAcctuUser.pin === Number(close_account_pin.value)){
+    console.log(`Account ${closeAcctuUser.owner} is close with the balance ${closeAcctuUser.balance} and the loan ${closeAcctuUser.loan} `)
+    accounts.pop(closeAcctuUser)
+  }
+})
