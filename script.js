@@ -56,6 +56,10 @@ const movements_row_container = document.querySelector("#movements");
 
 //Functions 
 //Create user name
+function loan(accts){
+  accts.forEach((acct)=> acct.loan = 0)
+}
+loan(accounts)  
 function createUserName(accounts){
   accounts.forEach(account=>account.userName = account.owner.toLowerCase().split(" ").map(splitname=> splitname[0]).join(""))
 }
@@ -83,17 +87,17 @@ function display(move, idx) {
         </div>`)
 }
 
-// console.log(balance([4300, 10000, 7000, 500, 900]));
+// Login
 let currentUser;
 login_button.addEventListener('click',function(){
   currentUser = accounts.find((account) => account.userName===login_username.value);
-  if(currentUser.pin === Number(login_password.value)){
+  if(currentUser?.pin === Number(login_password.value)){
+    movements_row_container.textContent = ""
     app.style = "opacity: 100";
     greet.textContent = `Wellcome,${currentUser.owner.split(" ")[1]}`
     balance_lable.textContent = currentUser.balance
+    currentUser.movements.forEach((move, idx) => display(move,idx))
   }
-  movements_row_container.textContent = ""
-  currentUser.movements.forEach((move, idx) => display(move,idx))
 })
 
 // Implement Operations
@@ -116,6 +120,7 @@ request_loan_button.addEventListener("click",(e)=>{
   const amount = Number(request_loan_amount.value)
   if(amount>0){
     console.log(amount)
+     currentUser.loan += amount
     currentUser.movements.push(amount)
     display(amount,currentUser.movements.length - 1)
     balance_lable.textContent = currentUser.balance + amount
