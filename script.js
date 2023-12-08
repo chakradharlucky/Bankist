@@ -53,12 +53,15 @@ const close_account_pin = document.querySelector("#close_account_pin")
 const close_account_button = document.querySelector("#close_account_button")
 const balance_lable = document.querySelector("#balance")
 const movements_row_container = document.querySelector("#movements");
+const inflow = document.querySelector("#inflow")
+const outflow = document.querySelector("#outflow");
 
 //Functions 
 //Create user name
 function loan(accts){
   accts.forEach((acct)=> acct.loan = 0)
 }
+
 loan(accounts)  
 function createUserName(accounts){
   accounts.forEach(account=>account.userName = account.owner.toLowerCase().split(" ").map(splitname=> splitname[0]).join(""))
@@ -72,6 +75,7 @@ function balance(accts)
     account.balance = account.movements.reduce((sum=0,movment)=> sum+movment)
   })
 } 
+
 balance(accounts);
 function display(move, idx) {
     let move_type = move > 0 ? "Deposit" : "withdraw";
@@ -87,6 +91,10 @@ function display(move, idx) {
         </div>`)
 }
 
+const totalDepositAmount = acct => acct.filter((mov)=> mov>0).reduce((sum=0,mov)=>sum+=mov); 
+
+const totalWithdrawAmount = (acct) => acct.filter((mov) => mov < 0).reduce((sum=0, mov) => sum += mov)
+
 // Login
 let currentUser;
 login_button.addEventListener('click',function(){
@@ -97,6 +105,12 @@ login_button.addEventListener('click',function(){
     greet.textContent = `Wellcome,${currentUser.owner.split(" ")[1]}`
     balance_lable.textContent = currentUser.balance
     currentUser.movements.forEach((move, idx) => display(move,idx))
+    currentUser.inflow = totalDepositAmount(currentUser.movements)
+    console.log(currentUser.inflow)
+    inflow.textContent = currentUser.inflow
+    currentUser.outflow = Math.abs(totalWithdrawAmount(currentUser.movements))
+    console.log(currentUser.outflow)
+    outflow.textContent = currentUser.outflow;
   }
 })
 

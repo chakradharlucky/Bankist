@@ -28,16 +28,18 @@ body{
 }
 
 #app{
-    opacity: 100;
+    opacity: 0;
 }
 #main{
     display: grid;
-    grid-template-columns: 6fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin:10px 100px;
     gap: 50px;
 }
 #movements{
     width: 100%;
+    min-height: 590px ;
+    max-height: 590px;
     overflow: scroll;
 }
 #movements_row{
@@ -68,6 +70,15 @@ form{
 #movements,#operation{
     border: 2px solid;
 }
+
+#footer{
+    display: flex;
+    justify-content: space-between;
+    max-width: 550px;
+    margin:0px 120px;
+}
+
+
 
 .transfer_money{
 
