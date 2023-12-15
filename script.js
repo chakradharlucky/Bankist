@@ -106,10 +106,8 @@ login_button.addEventListener('click',function(){
     balance_lable.textContent = currentUser.balance
     currentUser.movements.forEach((move, idx) => display(move,idx))
     currentUser.inflow = totalDepositAmount(currentUser.movements)
-    console.log(currentUser.inflow)
     inflow.textContent = currentUser.inflow
     currentUser.outflow = Math.abs(totalWithdrawAmount(currentUser.movements))
-    console.log(currentUser.outflow)
     outflow.textContent = currentUser.outflow;
   }
 })
@@ -119,12 +117,15 @@ transfer_money_button.addEventListener("click",(e)=>{
   e.preventDefault();
   const amount = Number(transfer_money_amount.value)
   const recevier = accounts.find((acct)=> acct.userName === transfer_money_userName.value)
+  console.log(recevier)
   if(amount>0 && amount <= recevier.balance && currentUser.userName!== recevier)
   {
     currentUser.movements.push(-amount)
     display(-amount,currentUser.movements.length-1)
     recevier.movements.push(amount)
     balance_lable.textContent = currentUser.balance - amount
+    currentUser.outflow = currentUser.outflow + amount
+    outflow.textContent = currentUser.outflow
   }
 }) 
 
@@ -138,6 +139,8 @@ request_loan_button.addEventListener("click",(e)=>{
     currentUser.movements.push(amount)
     display(amount,currentUser.movements.length - 1)
     balance_lable.textContent = currentUser.balance + amount
+    currentUser.inflow+=amount
+    inflow.textContent = currentUser.inflow;
   }
 })
 
