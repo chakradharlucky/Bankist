@@ -38,6 +38,7 @@ const greet = document.querySelector("#greet")
 const login_username = document.querySelector("#login_username")
 const login_password = document.querySelector("#login_password")
 const login_button = document.querySelector("#login_button")
+const data_and_time = document.querySelector("#data_and_time");
 
 // Select Operations's elements 
 // Select Transfer money elements
@@ -109,6 +110,8 @@ login_button.addEventListener('click',function(){
     inflow.textContent = currentUser.inflow
     currentUser.outflow = Math.abs(totalWithdrawAmount(currentUser.movements))
     outflow.textContent = currentUser.outflow;
+    const date = new Date()
+    data_and_time.textContent = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
   }
 })
 

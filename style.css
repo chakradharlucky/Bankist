@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:ital,wght@0,300;1,100&family=Shadows+Into+Light&display=swap');
 body{
-    margin: 100px 100px;
+    /* margin: 100px 100px; */
     background-color: rgb(221, 221, 221);
     font-family: 'Roboto', sans-serif;
 
@@ -24,7 +24,7 @@ body{
 #current_balance{
     display: flex;
     justify-content:space-between;
-    margin:0px 100px;
+    margin:0px 200px;
 }
 
 #app{
@@ -32,8 +32,8 @@ body{
 }
 #main{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin:10px 100px;
+    grid-template-columns: 1.5fr 1fr;
+    margin:10px 200px;
     gap: 50px;
 }
 #movements{
@@ -75,17 +75,34 @@ form{
     display: flex;
     justify-content: space-between;
     max-width: 550px;
-    margin:0px 120px;
+    margin:0px 200px;
 }
 
 
 
 .transfer_money{
-
+    background-color: rgba(245, 182, 66,0.4);
+    border: 1px solid rgba(245, 182, 66,0);
+    border-radius: 30px;
+    margin: 10px 30px 5px 30px;
 } 
 .request_loan{
-
+    background-color: rgba(173, 245, 66,0.4);
+    border: 1px solid rgba(245, 182, 66,0.1);
+    border-radius: 30px;
+    margin: 5px 30px 5px 30px;
 } 
 .close_account{
+    background-color: rgba(245, 87, 66,0.4);
+    border: 1px solid rgba(245, 182, 66,0.1);
+    border-radius: 30px;
+    margin: 5px 30px 5px 30px;
+}
 
+#outflow{
+    color: rgba(245, 182, 66,1);
+}
+
+#inflow{
+    color: rgba(0, 245, 0,1);
 }
