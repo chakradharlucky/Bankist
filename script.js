@@ -79,11 +79,11 @@ function balance(accts)
 
 balance(accounts);
 function display(move, idx) {
-    let move_type = move > 0 ? "Deposit" : "withdraw";
+    let move_type = move > 0 ? "Deposit" : "Withdraw";
     movements_row_container.insertAdjacentHTML(
       "afterbegin",
       `<div id="movements_row">
-            <div>
+            <div id="${move_type}">
               <h3>${idx + 1}.${move_type}</h3>
             </div>
             <div>
@@ -98,9 +98,12 @@ const totalWithdrawAmount = (acct) => acct.filter((mov) => mov < 0).reduce((sum=
 
 // Login
 let currentUser;
+
 login_button.addEventListener('click',function(){
   currentUser = accounts.find((account) => account.userName===login_username.value);
   if(currentUser?.pin === Number(login_password.value)){
+      login_username.style.borderColor = "black";
+      login_password.style.borderColor = "black";
     movements_row_container.textContent = ""
     app.style = "opacity: 100";
     greet.textContent = `Wellcome,${currentUser.owner.split(" ")[1]}`
@@ -111,7 +114,11 @@ login_button.addEventListener('click',function(){
     currentUser.outflow = Math.abs(totalWithdrawAmount(currentUser.movements))
     outflow.textContent = currentUser.outflow;
     const date = new Date()
-    data_and_time.textContent = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+    data_and_time.textContent = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()<10?'0'+date.getMinutes():date.getMinutes()}`;
+  }
+  else{
+    login_username.style.borderColor="red"
+    login_password.style.borderColor="red"
   }
 })
 
@@ -121,7 +128,7 @@ transfer_money_button.addEventListener("click",(e)=>{
   const amount = Number(transfer_money_amount.value)
   const recevier = accounts.find((acct)=> acct.userName === transfer_money_userName.value)
   console.log(recevier)
-  if(amount>0 && amount <= recevier.balance && currentUser.userName!== recevier)
+  if(amount>0 && amount <= recevier.balance && currentUser.userName!== recevier.userName)
   {
     currentUser.movements.push(-amount)
     display(-amount,currentUser.movements.length-1)

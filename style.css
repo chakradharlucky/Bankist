@@ -6,9 +6,9 @@ body{
 
 }
 #navigation{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
     margin:10px 100px;
 }
 
@@ -18,7 +18,18 @@ body{
 
 #login{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly; 
+}
+#login_username,#login_password,#login_button,#transfer_money_userName,#transfer_money_amount,#transfer_money_button,#request_loan_amount,#request_loan_button,#close_account_user_name,#close_account_pin,#close_account_button{
+    height: 120%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#login_button:hover{
+    cursor: pointer;
+}
+#login_username::placeholder,#login_password::placeholder{
+    padding-left: 10px;
 }
 
 #current_balance{
@@ -34,7 +45,7 @@ body{
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     margin:10px 200px;
-    gap: 50px;
+    gap: 20px;
 }
 #movements{
     width: 100%;
@@ -46,7 +57,15 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 2px solid rgb(144, 144, 144);
+    border-bottom: 2px solid rgba(144, 144, 144,0.2);
+    flex-wrap: wrap;
+}
+
+#Deposit{
+    color: rgb(21, 166, 21);
+}
+#Withdraw{
+    color: rgb(242, 27, 27);
 }
 #operation{
     display: flex;
@@ -100,9 +119,9 @@ form{
 }
 
 #outflow{
-    color: rgba(245, 182, 66,1);
+    color: rgb(242, 27, 27);
 }
 
 #inflow{
-    color: rgba(0, 245, 0,1);
+    color: rgb(21, 166, 21);
 }
