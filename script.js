@@ -128,14 +128,22 @@ transfer_money_button.addEventListener("click",(e)=>{
   const amount = Number(transfer_money_amount.value)
   const recevier = accounts.find((acct)=> acct.userName === transfer_money_userName.value)
   console.log(recevier)
-  if(amount>0 && amount <= recevier.balance && currentUser.userName!== recevier.userName)
-  {
-    currentUser.movements.push(-amount)
-    display(-amount,currentUser.movements.length-1)
-    recevier.movements.push(amount)
-    balance_lable.textContent = currentUser.balance - amount
-    currentUser.outflow = currentUser.outflow + amount
-    outflow.textContent = currentUser.outflow
+  if (
+    amount > 0 &&
+    amount <= currentUser.balance &&
+    currentUser.userName !== recevier.userName
+  ) {
+    currentUser.movements.push(-amount);
+    display(-amount, currentUser.movements.length - 1);
+    recevier.movements.push(amount);
+    currentUser.balance = currentUser.balance - amount;
+    balance_lable.textContent = currentUser.balance;
+    currentUser.outflow = currentUser.outflow + amount;
+    outflow.textContent = currentUser.outflow;
+  } 
+  else {
+    transfer_money_amount.style.borderColor = "red";
+    transfer_money_userName.style.borderColor = "red";
   }
 }) 
 
